@@ -20,7 +20,7 @@ public class TeacherService {
         teacher.id = scanner.nextLine();
         System.out.println("Enter Years of Experience: ");
         teacher.yearsOfExperience = scanner.nextShort();
-        teacher.subjectsExpertiseList = SubjectService.addSubjects();
+        teacher.subjectsExpertiseList = SubjectService.addSubjects(true);
         return teacher;
     }
 

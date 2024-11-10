@@ -20,7 +20,7 @@ public class StudentService {
         student.age = scanner.nextShort();
         System.out.println("Enter Grade");
         student.grade = scanner.next();
-        student.courses = SubjectService.addSubjects();
+        student.courses = SubjectService.addSubjects(false);
         return student;
 
     }
