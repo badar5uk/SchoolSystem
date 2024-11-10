@@ -32,7 +32,6 @@ public class SchoolService {
         while (exitFlag) {
             System.out.println("Enter  new school? Y/N");
             String newDataEntry = scanner.nextLine();
-            scanner.nextLine();
             if (newDataEntry.contains("Y") || newDataEntry.contains("y")) {
                 schools.add(SchoolService.addSchool());
             } else if(newDataEntry.contains("N") || newDataEntry.contains("n")){

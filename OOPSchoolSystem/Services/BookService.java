@@ -42,9 +42,8 @@ public class BookService {
     public static List<Book> addBooks(){
         Boolean exitFlag = true;
         while (exitFlag) {
-            System.out.println("Enter more books? Y/N ");
+            System.out.println("Enter books? Y/N ");
             String newDataEntry = scanner.nextLine();
-            scanner.nextLine();
             if (newDataEntry.contains("Y") || newDataEntry.contains("y")) {
                 bookList.add(BookService.addBook());
             } else if(newDataEntry.contains("N") || newDataEntry.contains("n")){

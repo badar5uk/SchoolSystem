@@ -27,7 +27,6 @@ public class SubjectService {
         while (exitFlag) {
             System.out.println("Enter Subject? Y/N");
             String newDataEntry = scanner.nextLine();
-            scanner.nextLine();
             if (newDataEntry.contains("Y") || newDataEntry.contains("y")) {
                 subjectsList.add(SubjectService.addSubject());
             } else if(newDataEntry.contains("N") || newDataEntry.contains("n")){

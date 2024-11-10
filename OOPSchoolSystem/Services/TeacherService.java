@@ -29,7 +29,6 @@ public class TeacherService {
         while (exitFlag) {
             System.out.println("Enter new Teacher? Y/N");
             String newDataEntry = scanner.nextLine();
-            scanner.nextLine();
             if (newDataEntry.contains("Y") || newDataEntry.contains("y")) {
                 teacherList.add(TeacherService.addTeacher());
             } else if(newDataEntry.contains("N") || newDataEntry.contains("n")){
