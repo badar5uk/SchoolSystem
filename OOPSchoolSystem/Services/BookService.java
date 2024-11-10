@@ -12,7 +12,7 @@ public class BookService {
     static Scanner scanner = new Scanner(System.in);
     static List<Book> bookList = new ArrayList<>();
 
-    public static Book addBook(){
+    public static Book addBook() {
         Boolean exitFlag = true;
         Book book = new Book();
         System.out.println("Enter book name");
@@ -23,6 +23,7 @@ public class BookService {
         book.yearOfPublishing = scanner.nextLine();
         System.out.println("Enter Book ID");
         book.id = scanner.nextInt();
+        scanner.next();
         while (exitFlag) {
             System.out.println("Is the book Available? Y/N");
             String availableBook = scanner.nextLine();
@@ -39,14 +40,14 @@ public class BookService {
         return book;
     }
 
-    public static List<Book> addBooks(){
+    public static List<Book> addBooks() {
         Boolean exitFlag = true;
         while (exitFlag) {
             System.out.println("Enter books? Y/N ");
             String newDataEntry = scanner.nextLine();
             if (newDataEntry.contains("Y") || newDataEntry.contains("y")) {
                 bookList.add(BookService.addBook());
-            } else if(newDataEntry.contains("N") || newDataEntry.contains("n")){
+            } else if (newDataEntry.contains("N") || newDataEntry.contains("n")) {
                 exitFlag = false;
             } else {
                 System.out.println("Invalid input");
@@ -54,13 +55,14 @@ public class BookService {
         }
         return bookList;
     }
-    public static void retrieveBook(){
+
+    public static void retrieveBook() {
         System.out.println("Enter Book ID: ");
         Integer bookId = scanner.nextInt();
-        for(Book book : bookList){
-            if(book.id.equals(bookId)){
+        for (Book book : bookList) {
+            if (book.id.equals(bookId)) {
                 System.out.println(book);
-            }else {
+            } else {
                 System.out.println("Book does not exist");
             }
         }
