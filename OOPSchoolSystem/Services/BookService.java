@@ -1,8 +1,6 @@
 package OOPSchoolSystem.Services;
 
 import OOPSchoolSystem.Entities.Book;
-import OOPSchoolSystem.Entities.Mark;
-import OOPSchoolSystem.Entities.Student;
 
 import java.util.ArrayList;
 import java.util.List;
