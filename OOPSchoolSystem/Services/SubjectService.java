@@ -16,9 +16,9 @@ public class SubjectService {
         subject.name = scanner.nextLine();
         System.out.println("Enter Credit hours");
         subject.creditHours = scanner.nextShort();
-        if(isTeacher = true){
+        if(isTeacher == true){
 
-        }else {
+        } else {
             subject.marks = MarkService.addMarks();
         }
 
