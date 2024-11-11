@@ -1,5 +1,6 @@
 package OOPSchoolSystem.Services;
 
+import OOPSchoolSystem.Entities.School;
 import OOPSchoolSystem.Entities.Student;
 
 import java.util.ArrayList;
@@ -14,26 +15,58 @@ public class MenuService {
         Boolean exitFlag = true;
         while (exitFlag) {
             System.out.println("Pick an Option: " +
-                    "\n" + "1. Student Menu" +
-                    "\n" + "2. Teacher Menu" +
-                    "\n" + "3. Book Menu" +
-                    "\n" + "4. Library Menu" +
-                    "\n" + "5. Exit");
+                    "\n" + "1. School Menu" +
+                    "\n" + "2. Student Menu" +
+                    "\n" + "3. Teacher Menu" +
+                    "\n" + "4. Book Menu" +
+                    "\n" + "5. Library Menu" +
+                    "\n" + "6. Exit");
             String MainMenuInput = scanner.nextLine();
             if (MainMenuInput.equals("1")) {
+                schoolMenu();
+            } else if(MainMenuInput.equals("2")){
                 studentMenu();
-            } else if (MainMenuInput.equals("2")) {
+            }else if (MainMenuInput.equals("3")) {
                 teacherMenu();
-            } else if (MainMenuInput.equals("3")) {
-                bookMenu();
             } else if (MainMenuInput.equals("4")) {
-                libraryMenu();
+                bookMenu();
             } else if (MainMenuInput.equals("5")) {
+                libraryMenu();
+            } else if (MainMenuInput.equals("6")) {
                 exitFlag = false;
             } else {
                 System.out.println("Invalid input");
             }
         }
+    }
+    public static void schoolMenu(){
+        List<School> schoolList = new ArrayList<>();
+        while (true) {
+            System.out.println("Pick an Option: " +
+                    "\n" + "1. Enter School data" +
+                    "\n" + "2. Get school data" +
+                    "\n" + "3. Student menu" +
+                    "\n" + "4. Teacher menu" +
+                    "\n" + "5. Library menu" +
+                    "\n" + "6. Main Menu");
+            String schoolMenuInput = scanner.nextLine();
+            if (schoolMenuInput.equals("1")) {
+                schoolList = SchoolService.addSchools();
+            } else if (schoolMenuInput.equals("2")) {
+                SchoolService.retrieveSchoolData(schoolList);
+            }else if (schoolMenuInput.equals("3")) {
+                studentMenu();
+            } else if (schoolMenuInput.equals("4")) {
+                teacherMenu();
+            } else if (schoolMenuInput.equals("5")) {
+                teacherMenu();
+            }else if (schoolMenuInput.equals("6")) {
+                break;
+            } else {
+                System.out.println("Invalid input");
+            }
+        }
+
     }
 
     public static void studentMenu() {
