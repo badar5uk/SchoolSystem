@@ -15,7 +15,11 @@ public class SubjectService {
         System.out.println("Enter Subject Name: ");
         subject.name = scanner.nextLine();
         System.out.println("Enter Credit hours");
-        subject.creditHours = scanner.nextShort();
+        try {
+            subject.creditHours = scanner.nextShort();
+        }catch (Exception e){
+            System.out.println("Invalid input");
+        }
         if(isTeacher == true){
 
         } else {

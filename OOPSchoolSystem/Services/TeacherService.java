@@ -19,7 +19,11 @@ public class TeacherService {
         System.out.println("Enter ID: ");
         teacher.id = scanner.nextLine();
         System.out.println("Enter Years of Experience: ");
-        teacher.yearsOfExperience = scanner.nextShort();
+        try {
+            teacher.yearsOfExperience = scanner.nextShort();
+        } catch (Exception e){
+            System.out.println("Invalid Input");
+        }
         teacher.subjectsExpertiseList = SubjectService.addSubjects(true);
         return teacher;
     }

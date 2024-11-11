@@ -17,7 +17,11 @@ public class StudentService {
         System.out.println("Enter Student Name: ");
         student.name = scanner.nextLine();
         System.out.println("Enter Student Age");
-        student.age = scanner.nextShort();
+        try {
+            student.age = scanner.nextShort();
+        } catch (Exception e){
+            System.out.println("Invalid age");
+        }
         System.out.println("Enter Grade");
         student.grade = scanner.next();
         student.courses = SubjectService.addSubjects(false);

@@ -20,7 +20,11 @@ public class BookService {
         System.out.println("Enter year of publish");
         book.yearOfPublishing = scanner.nextLine();
         System.out.println("Enter Book ID");
-        book.id = scanner.nextInt();
+        try {
+            book.id = scanner.nextInt();
+        } catch (Exception e) {
+            System.out.println("Invalid input");
+        }
         scanner.next();
         while (exitFlag) {
             System.out.println("Is the book Available? Y/N");

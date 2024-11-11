@@ -17,7 +17,11 @@ public class MarkService {
         System.out.println("Enter Test Name: ");
         mark.title = scanner.nextLine();
         System.out.println("Enter mark");
-        mark.marks = scanner.nextFloat();
+        try {
+            mark.marks = scanner.nextFloat();
+        } catch (Exception e){
+            System.out.println("Invalid Input");
+        }
         scanner.nextLine(); // This line you have to add (It consumes the \n character)
         System.out.println("Enter Grade");
         mark.grade = scanner.nextLine();
