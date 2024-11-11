@@ -1,6 +1,7 @@
 package OOPSchoolSystem.Services;
 
 import OOPSchoolSystem.Entities.School;
+import OOPSchoolSystem.Entities.Student;
 
 
 import java.util.ArrayList;
@@ -41,5 +42,16 @@ public class SchoolService {
             }
         }
         return schools;
+    }
+    public static void retrieveSchoolData(List<School> schoolList){
+        System.out.println("Enter School name: ");
+        String schoolName = scanner.nextLine();
+        for(School school : schoolList){
+            if(school.name.equals(schoolName)){
+                System.out.println(school);
+            }else {
+                System.out.println("School does not exist");
+            }
+        }
     }
 }
