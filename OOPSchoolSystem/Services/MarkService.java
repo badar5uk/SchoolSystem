@@ -19,7 +19,7 @@ public class MarkService {
         System.out.println("Enter mark");
         try {
             mark.marks = scanner.nextFloat();
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Invalid Input");
         }
         scanner.nextLine(); // This line you have to add (It consumes the \n character)
@@ -39,7 +39,7 @@ public class MarkService {
             String newDataEntry = scanner.nextLine();
             if (newDataEntry.contains("Y") || newDataEntry.contains("y")) {
                 markList.add(MarkService.addMark());
-            } else if(newDataEntry.contains("N") || newDataEntry.contains("n")){
+            } else if (newDataEntry.contains("N") || newDataEntry.contains("n")) {
                 exitFlag = false;
             } else {
                 System.out.println("Invalid input");
@@ -53,21 +53,26 @@ public class MarkService {
         String studentId = scanner.nextLine();
         for (Student student : studentList) {
             if (student.id.equals(studentId)) {
-                for(Subject course : student.courses){
+                for (Subject course : student.courses) {
                     System.out.println("Enter course name: ");
                     String courseName = scanner.nextLine();
-                    if (course.name.equals(courseName)){
-                        Float totalMarks = 0F;
-                        for (Mark mark : course.marks) {
-                            totalMarks += mark.marks;
-                        }
-                        Float average = totalMarks / course.marks.size();
+                    try {
+                        if (course.name.equals(courseName)) {
+                            Float totalMarks = 0F;
+                            for (Mark mark : course.marks) {
+                                totalMarks += mark.marks;
+                            }
+                            Float average = totalMarks / course.marks.size();
 
-                        System.out.println("The average of marks is " + average);
+                            System.out.println("The average of marks is " + average);
+                        } else {
+                            System.out.println("Student does not exist");
+                        }
+
+                    } catch (Exception e) {
+                        System.out.println("Invalid marks");
                     }
                 }
-            } else {
-                System.out.println("Student does not exist");
             }
         }
     }
