@@ -1,5 +1,6 @@
 package OOPSchoolSystem.Services;
 
+import OOPSchoolSystem.Entities.School;
 import OOPSchoolSystem.Entities.Student;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class StudentService {
         System.out.println("Enter Student Age");
         try {
             student.setAge(scanner.nextShort());
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Invalid age");
         }
         scanner.nextLine();
@@ -47,14 +48,16 @@ public class StudentService {
         }
         return studentsList;
     }
-    public static void retrieveStudent(List<Student> studentList){
+    public static void retrieveStudent(List<School> schools) {
         System.out.println("Enter Student ID: ");
         String studentId = scanner.nextLine();
-        for(Student student : studentList){
-            if(student.getId().equals(studentId)){
-                System.out.println(student);
-            }else {
-                System.out.println("Student does not exist");
+        for (School school : schools) {
+            for (Student student : school.getStudents()) {
+                if (student.getId().equals(studentId)) {
+                    System.out.println(student);
+                } else {
+                    System.out.println("Student does not exist");
+                }
             }
         }
     }

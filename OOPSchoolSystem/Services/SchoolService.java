@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class SchoolService {
 
     static Scanner scanner = new Scanner(System.in);
+    static List<School> schools = new ArrayList<>();
 
     public static School addSchool() {
 
@@ -22,14 +23,14 @@ public class SchoolService {
         school.setAddress(scanner.nextLine());
         school.setStudents(StudentService.addStudents());
         school.setTeachers(TeacherService.addTeachers());
-        school.setLibrary(LibraryService.addLibrary());
+        school.setLibrary(LibraryService.addLibrary(schools));
 
         return school;
     }
 
     public static List<School> addSchools() {
         Boolean exitFlag = true;
-        List<School> schools = new ArrayList<>();
+
         while (exitFlag) {
             System.out.println("Enter  new school? Y/N");
             String newDataEntry = scanner.nextLine();

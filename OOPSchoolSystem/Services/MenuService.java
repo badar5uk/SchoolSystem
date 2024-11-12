@@ -26,13 +26,13 @@ public class MenuService {
             if (MainMenuInput.equals("1")) {
                 schools = schoolMenu();
             } else if (MainMenuInput.equals("2")) {
-                studentMenu();
+                studentMenu(schools);
             } else if (MainMenuInput.equals("3")) {
                 teacherMenu();
             } else if (MainMenuInput.equals("4")) {
                 bookMenu(schools);
             } else if (MainMenuInput.equals("5")) {
-                libraryMenu();
+                libraryMenu(schools);
             } else if (MainMenuInput.equals("6")) {
                 exitFlag = false;
             } else {
@@ -57,7 +57,7 @@ public class MenuService {
             } else if (schoolMenuInput.equals("2")) {
                 SchoolService.retrieveSchoolData(schoolList);
             } else if (schoolMenuInput.equals("3")) {
-                studentMenu();
+                studentMenu(schoolList);
             } else if (schoolMenuInput.equals("4")) {
                 teacherMenu();
             } else if (schoolMenuInput.equals("5")) {
@@ -71,7 +71,7 @@ public class MenuService {
         return schoolList;
     }
 
-    public static void studentMenu() {
+    public static void studentMenu(List<School> schools) {
         List<Student> studentList = new ArrayList<>();
         while (true) {
             System.out.println("Pick an Option: " +
@@ -83,7 +83,7 @@ public class MenuService {
             if (studentMenuInput.equals("1")) {
                 studentList = StudentService.addStudents();
             } else if (studentMenuInput.equals("2")) {
-                StudentService.retrieveStudent(studentList);
+                StudentService.retrieveStudent(schools);
             } else if (studentMenuInput.equals("3")) {
                 MarkService.calculateMarksAverage(studentList);
             } else if (studentMenuInput.equals("4")) {
@@ -121,14 +121,14 @@ public class MenuService {
             if (bookMenuInput.equals("1")) {
                 BookService.addBooks(schools);
             } else if (bookMenuInput.equals("2")) {
-                BookService.retrieveBook();
+                BookService.retrieveBook(schools);
             } else if (bookMenuInput.equals("3")) {
                 break;
             }
         }
     }
 
-    public static void libraryMenu() {
+    public static void libraryMenu(List<School> schools) {
         while (true) {
             System.out.println("Pick an Option: " +
                     "\n" + "1. Enter Library data" +
@@ -136,9 +136,9 @@ public class MenuService {
                     "\n" + "3. Return to Main Menu");
             String libraryMenuInput = scanner.nextLine();
             if (libraryMenuInput.equals("1")) {
-                LibraryService.addLibrary();
+                LibraryService.addLibrary(schools);
             } else if (libraryMenuInput.equals("2")) {
-                bookMenu();
+                bookMenu(schools);
             } else if (libraryMenuInput.equals("3")) {
                 break;
             }
