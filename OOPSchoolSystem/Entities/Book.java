@@ -61,8 +61,20 @@ public class Book {
                 "name='" + name + '\'' +
                 ", author='" + author + '\'' +
                 ", id=" + id +
-                ", yearOfPublishing='" + yearOfPublishing + '\'' +
+                ", yearOfPublishing=" + yearOfPublishing +
                 ", isAvailable=" + isAvailable +
+                ", studentName='" + studentName + '\'' +
                 '}';
     }
+
+    public String getStudentName() {
+        return studentName;
+    }
+
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
+
+    private String studentName;
+
 }
