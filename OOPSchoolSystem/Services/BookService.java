@@ -1,6 +1,8 @@
 package OOPSchoolSystem.Services;
 
 import OOPSchoolSystem.Entities.Book;
+import OOPSchoolSystem.Entities.School;
+import OOPSchoolSystem.Entities.Student;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,14 +16,15 @@ public class BookService {
         Boolean exitFlag = true;
         Book book = new Book();
         System.out.println("Enter book name");
-        book.name = scanner.nextLine();
+        book.setName(scanner.nextLine());
         System.out.println("Enter Author's Name");
-        book.author = scanner.nextLine();
+        book.setAuthor(scanner.nextLine());
         System.out.println("Enter year of publish");
-        book.yearOfPublishing = scanner.nextLine();
+        book.setYearOfPublishing(scanner.nextShort());
+        scanner.nextLine();
         System.out.println("Enter Book ID");
         try {
-            book.id = scanner.nextInt();
+            book.setId(scanner.nextInt());
             scanner.nextLine();
         } catch (Exception e) {
             System.out.println("Invalid input");
@@ -31,10 +34,10 @@ public class BookService {
             System.out.println("Is the book Available? Y/N");
             String availableBook = scanner.nextLine();
             if (availableBook.contains("Y") || availableBook.contains("y")) {
-                book.isAvailable = true;
+                book.setAvailable(true);
                 exitFlag = false;
             } else if (availableBook.contains("N") || availableBook.contains("n")) {
-                book.isAvailable = false;
+                book.setAvailable(false);
                 exitFlag = false;
             } else {
                 System.out.println("invalid input");
@@ -43,7 +46,7 @@ public class BookService {
         return book;
     }
 
-    public static List<Book> addBooks() {
+    public static List<Book> addBooks(List<School> schoolList) {
         Boolean exitFlag = true;
         while (exitFlag) {
             System.out.println("Enter books? Y/N ");
@@ -67,6 +70,17 @@ public class BookService {
                 System.out.println(book);
             } else {
                 System.out.println("Book does not exist");
+            }
+        }
+    }
+    public static void assignBook(List<Student> studentList){
+        System.out.println("Enter Student ID: ");
+        String studentId = scanner.nextLine();
+        for(Student student : studentList){
+            if(student.id.equals(studentId)){
+                System.out.println(student);
+            }else {
+                System.out.println("Student does not exist");
             }
         }
     }

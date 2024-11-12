@@ -13,10 +13,10 @@ public class SubjectService {
 
         Subject subject = new Subject();
         System.out.println("Enter Subject Name: ");
-        subject.name = scanner.nextLine();
+        subject.setName(scanner.nextLine());
         System.out.println("Enter Credit hours");
         try {
-            subject.creditHours = scanner.nextShort();
+            subject.setCreditHours(scanner.nextShort());
             scanner.nextLine();
         }catch (Exception e){
             System.out.println("Invalid input");
@@ -24,7 +24,7 @@ public class SubjectService {
         if(isTeacher == true){
 
         } else {
-            subject.marks = MarkService.addMarks();
+            subject.setMarks(MarkService.addMarks());
         }
 
 

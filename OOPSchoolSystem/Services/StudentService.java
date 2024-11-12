@@ -13,19 +13,19 @@ public class StudentService {
 
         Student student = new Student();
         System.out.println("Enter student ID");
-        student.id = scanner.nextLine();
+        student.setId(scanner.nextLine());
         System.out.println("Enter Student Name: ");
-        student.name = scanner.nextLine();
+        student.setName(scanner.nextLine());
         System.out.println("Enter Student Age");
         try {
-            student.age = scanner.nextShort();
+            student.setAge(scanner.nextShort());
         } catch (Exception e){
             System.out.println("Invalid age");
         }
         scanner.nextLine();
         System.out.println("Enter Grade");
-        student.grade = scanner.next();
-        student.courses = SubjectService.addSubjects(false);
+        student.setGrade(scanner.next());
+        student.setCourses(SubjectService.addSubjects(false));
         return student;
 
     }
@@ -51,7 +51,7 @@ public class StudentService {
         System.out.println("Enter Student ID: ");
         String studentId = scanner.nextLine();
         for(Student student : studentList){
-            if(student.id.equals(studentId)){
+            if(student.getId().equals(studentId)){
                 System.out.println(student);
             }else {
                 System.out.println("Student does not exist");

@@ -15,19 +15,19 @@ public class MarkService {
     public static Mark addMark() {
         Mark mark = new Mark();
         System.out.println("Enter Test Name: ");
-        mark.title = scanner.nextLine();
+        mark.setTitle(scanner.nextLine());
         System.out.println("Enter mark");
         try {
-            mark.marks = scanner.nextFloat();
+            mark.setMarks(scanner.nextFloat());
             scanner.nextLine();
         } catch (Exception e) {
             System.out.println("Invalid Input");
         }
         scanner.nextLine(); // This line you have to add (It consumes the \n character)
         System.out.println("Enter Grade");
-        mark.grade = scanner.nextLine();
+        mark.setGrade(scanner.nextLine());
         System.out.println("Enter comments");
-        mark.comments = scanner.nextLine();
+        mark.setComments(scanner.nextLine());
         return mark;
     }
 
@@ -54,16 +54,16 @@ public class MarkService {
         String studentId = scanner.nextLine();
         for (Student student : studentList) {
             if (student.id.equals(studentId)) {
-                for (Subject course : student.courses) {
+                for (Subject course : student.getCourses()) {
                     System.out.println("Enter course name: ");
                     String courseName = scanner.nextLine();
                     try {
-                        if (course.name.equals(courseName)) {
+                        if (course.getName().equals(courseName)) {
                             Float totalMarks = 0F;
-                            for (Mark mark : course.marks) {
-                                totalMarks += mark.marks;
+                            for (Mark mark : course.getMarks()) {
+                                totalMarks += mark.getMarks();
                             }
-                            Float average = totalMarks / course.marks.size();
+                            Float average = totalMarks / course.getMarks().size();
 
                             System.out.println("The average of marks is " + average);
                         } else {

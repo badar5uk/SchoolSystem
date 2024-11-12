@@ -10,8 +10,8 @@ public class LibraryService {
     public static Library addLibrary(){
         Library library = new Library();
         System.out.println("Enter Library Name");
-        library.name = scanner.nextLine();
-        library.books = BookService.addBooks();
+        library.setName(scanner.nextLine());
+        library.setBooks(BookService.addBooks());
         return library;
     }
 

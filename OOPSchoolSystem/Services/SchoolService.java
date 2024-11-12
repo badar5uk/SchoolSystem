@@ -16,13 +16,13 @@ public class SchoolService {
 
         School school = new School();
         System.out.println("Enter School Name");
-        school.name = scanner.nextLine();
+        school.setName(scanner.nextLine());
 
         System.out.println("Enter School Address");
-        school.address = scanner.nextLine();
-        school.students = StudentService.addStudents();
-        school.teachers = TeacherService.addTeachers();
-        school.library = LibraryService.addLibrary();
+        school.setAddress(scanner.nextLine());
+        school.setStudents(StudentService.addStudents());
+        school.setTeachers(TeacherService.addTeachers());
+        school.setLibrary(LibraryService.addLibrary());
 
         return school;
     }
@@ -47,7 +47,7 @@ public class SchoolService {
         System.out.println("Enter School name: ");
         String schoolName = scanner.nextLine();
         for(School school : schoolList){
-            if(school.name.equals(schoolName)){
+            if(school.getName().equals(schoolName)){
                 System.out.println(school);
             }else {
                 System.out.println("School does not exist");

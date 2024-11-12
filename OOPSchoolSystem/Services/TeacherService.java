@@ -15,17 +15,17 @@ public class TeacherService {
     public static Teacher addTeacher(){
         Teacher teacher = new Teacher();
         System.out.println("Enter Teacher's name: ");
-        teacher.name = scanner.nextLine();
+        teacher.setName(scanner.nextLine());
         System.out.println("Enter ID: ");
-        teacher.id = scanner.nextLine();
+        teacher.setId(scanner.nextLine());
         System.out.println("Enter Years of Experience: ");
         try {
-            teacher.yearsOfExperience = scanner.nextShort();
+            teacher.setYearsOfExperience(scanner.nextShort());
             scanner.nextLine();
         } catch (Exception e){
             System.out.println("Invalid Input");
         }
-        teacher.subjectsExpertiseList = SubjectService.addSubjects(true);
+        teacher.setSubjectsExpertiseList(SubjectService.addSubjects(true));
         return teacher;
     }
 
@@ -49,7 +49,7 @@ public class TeacherService {
         System.out.println("Enter Teacher's ID: ");
         String teacherId = scanner.nextLine();
         for(Teacher teacher : teacherList){
-            if(teacher.id.equals(teacherId)){
+            if(teacher.getId().equals(teacherId)){
                 System.out.println(teacher);
             }else {
                 System.out.println("Teacher does not exist");
