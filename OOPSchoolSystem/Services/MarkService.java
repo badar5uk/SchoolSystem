@@ -19,6 +19,7 @@ public class MarkService {
         System.out.println("Enter mark");
         try {
             mark.marks = scanner.nextFloat();
+            scanner.nextLine();
         } catch (Exception e) {
             System.out.println("Invalid Input");
         }

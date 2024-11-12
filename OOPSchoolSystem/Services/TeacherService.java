@@ -21,6 +21,7 @@ public class TeacherService {
         System.out.println("Enter Years of Experience: ");
         try {
             teacher.yearsOfExperience = scanner.nextShort();
+            scanner.nextLine();
         } catch (Exception e){
             System.out.println("Invalid Input");
         }

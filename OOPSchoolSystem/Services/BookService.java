@@ -22,6 +22,7 @@ public class BookService {
         System.out.println("Enter Book ID");
         try {
             book.id = scanner.nextInt();
+            scanner.nextLine();
         } catch (Exception e) {
             System.out.println("Invalid input");
         }
