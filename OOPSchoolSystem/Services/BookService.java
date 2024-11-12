@@ -66,7 +66,7 @@ public class BookService {
         System.out.println("Enter Book ID: ");
         Integer bookId = scanner.nextInt();
         for (Book book : bookList) {
-            if (book.id.equals(bookId)) {
+            if (book.getId().equals(bookId)) {
                 System.out.println(book);
             } else {
                 System.out.println("Book does not exist");
@@ -77,7 +77,7 @@ public class BookService {
         System.out.println("Enter Student ID: ");
         String studentId = scanner.nextLine();
         for(Student student : studentList){
-            if(student.id.equals(studentId)){
+            if(student.getId().equals(studentId)){
                 System.out.println(student);
             }else {
                 System.out.println("Student does not exist");

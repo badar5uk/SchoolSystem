@@ -53,7 +53,7 @@ public class MarkService {
         System.out.println("Enter Student ID: ");
         String studentId = scanner.nextLine();
         for (Student student : studentList) {
-            if (student.id.equals(studentId)) {
+            if (student.getId().equals(studentId)) {
                 for (Subject course : student.getCourses()) {
                     System.out.println("Enter course name: ");
                     String courseName = scanner.nextLine();
