@@ -1,6 +1,8 @@
 package OOPSchoolSystem.Entities;
 
 
+import java.util.List;
+
 public class Book {
     private String name;
     private String author;
@@ -17,8 +19,8 @@ public class Book {
         return name;
     }
 
-    public void setName(String name){
-        if (!name.isEmpty() && !name.isBlank()){
+    public void setName(String name) {
+        if (!name.isEmpty() && !name.isBlank()) {
             this.name = name;
         }
     }
@@ -28,7 +30,7 @@ public class Book {
     }
 
     public void setAuthor(String author) {
-        if (!author.isEmpty() && !author.isBlank()){
+        if (!author.isEmpty() && !author.isBlank()) {
             this.author = author;
         }
     }
@@ -38,7 +40,7 @@ public class Book {
     }
 
     public void setYearOfPublishing(Short yearOfPublishing) {
-        if (yearOfPublishing.toString().length() == 4){
+        if (yearOfPublishing.toString().length() == 4) {
             this.yearOfPublishing = yearOfPublishing;
         }
     }
@@ -76,5 +78,15 @@ public class Book {
     }
 
     private String studentName;
+
+    public List<Book> getTakenBookList() {
+        return takenBookList;
+    }
+
+    public void setTakenBookList(List<Book> takenBookList) {
+        this.takenBookList = takenBookList;
+    }
+
+    private List<Book> takenBookList;
 
 }
