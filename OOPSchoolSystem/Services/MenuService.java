@@ -47,22 +47,13 @@ public class MenuService {
             System.out.println("Pick an Option: " +
                     "\n" + "1. Enter School data" +
                     "\n" + "2. Get school data" +
-                    "\n" + "3. Student menu" +
-                    "\n" + "4. Teacher menu" +
-                    "\n" + "5. Library menu" +
-                    "\n" + "6. Main Menu");
+                    "\n" + "3. Main Menu");
             String schoolMenuInput = scanner.nextLine();
             if (schoolMenuInput.equals("1")) {
                 schoolList = SchoolService.addSchools();
             } else if (schoolMenuInput.equals("2")) {
                 SchoolService.retrieveSchoolData(schoolList);
             } else if (schoolMenuInput.equals("3")) {
-                studentMenu(schoolList);
-            } else if (schoolMenuInput.equals("4")) {
-                teacherMenu();
-            } else if (schoolMenuInput.equals("5")) {
-                teacherMenu();
-            } else if (schoolMenuInput.equals("6")) {
                 break;
             } else {
                 System.out.println("Invalid input");
@@ -81,7 +72,7 @@ public class MenuService {
                     "\n" + "4. Return to Main Menu");
             String studentMenuInput = scanner.nextLine();
             if (studentMenuInput.equals("1")) {
-                studentList = StudentService.addStudents();
+                studentList = StudentService.addStudents(false);
             } else if (studentMenuInput.equals("2")) {
                 StudentService.retrieveStudent(schools);
             } else if (studentMenuInput.equals("3")) {
