@@ -3,7 +3,7 @@ package OOPSchoolSystem.Entities;
 import java.util.List;
 
 public class Student {
-    public String id;
+    private String id;
 
     public String getName() {
         return name;
